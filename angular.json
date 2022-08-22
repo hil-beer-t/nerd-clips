@@ -102,5 +102,7 @@
       }
     }
   },
-  "defaultProject": "nerd-clips"
+  "cli": {
+    "analytics": "8a71e872-771b-4fa3-99f4-074176163ef4"
+  }
 }

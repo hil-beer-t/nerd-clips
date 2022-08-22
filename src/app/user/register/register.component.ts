@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -8,35 +8,43 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 })
 export class RegisterComponent  {
 
+  // --- alert properties ---
+  showAlert = false
+  alertMsg = 'Please wait! Your account is being created'
+  alertColor = 'blue'
+  // --- alert properties ---
+
+
+
   // force FormControl type
-  name = new FormControl('', [
+  name = new UntypedFormControl('', [
     Validators.required,
     Validators.minLength(3)
   ])
-  email = new FormControl('', [
+  email = new UntypedFormControl('', [
     Validators.required,
     Validators.email
   ])
-  age = new FormControl('', [
+  age = new UntypedFormControl('', [
     Validators.required,
     Validators.min(18),
     Validators.max(120),
   ])
-  password = new FormControl('', [
+  password = new UntypedFormControl('', [
     Validators.required,
     Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm)
   ])
-  confirm_password = new FormControl('', [
+  confirm_password = new UntypedFormControl('', [
     Validators.required,
   ])
-  phoneNumber = new FormControl('',[
+  phoneNumber = new UntypedFormControl('',[
     Validators.required,
     Validators.minLength(14),
     Validators.maxLength(14)
   ])
 
   // instance of form group
-  registerForm = new FormGroup({
+  registerForm = new UntypedFormGroup({
     // arg1: helps angular to know what is inside this form
     // but its infer AbstractControl instead FormControl
     name: this.name,
@@ -50,6 +58,12 @@ export class RegisterComponent  {
   constructor(){
     // FormControl instead AbstractControl
     this.name
+  }
+
+  register(){
+    this.showAlert = true
+    this.alertMsg = 'Please wait! Your account is being created'
+    this.alertColor = 'blue'
   }
 
 }
