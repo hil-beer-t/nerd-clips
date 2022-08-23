@@ -10,9 +10,7 @@ if (environment.production) {
   enableProdMode();
 }
 
-if (firebase.apps.length === 0) {
-  firebase.initializeApp(environment.firebase);
-}
+firebase.initializeApp(environment.firebase);
 
 // prevent executing multiple times
 let appInit = false;

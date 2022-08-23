@@ -11,13 +11,17 @@ import { SharedModule } from './shared/shared.module';
 // --- firebase ---
 import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireAuthModule } from '@angular/fire/compat/auth'
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component'
 // --- firebase ---
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
