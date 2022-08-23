@@ -1,5 +1,8 @@
+import { RegisterValidators } from './../validators/register-validator';
 import { Component } from '@angular/core';
-import { AbstractControl, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { EmailTaken } from '../validators/email-taken';
 
 @Component({
   selector: 'app-register',
@@ -8,10 +11,25 @@ import { AbstractControl, UntypedFormControl, UntypedFormGroup, Validators } fro
 })
 export class RegisterComponent  {
 
+  constructor(
+    private authService: AuthService,
+    private emailTaken: EmailTaken){
+    // FormControl instead AbstractControl
+    this.name
+  }
+
+  // colors
+  red = 'rgb(248 113 113)'
+  green = 'rgb(74 222 128)'
+  blue = 'rgb(34 211 238)'
+
+  // deny button while submitting
+  inSubmission = false
+
   // --- alert properties ---
   showAlert = false
   alertMsg = 'Please wait! Your account is being created'
-  alertColor = 'blue'
+  alertColor = this.blue
   // --- alert properties ---
 
 
@@ -23,8 +41,9 @@ export class RegisterComponent  {
   ])
   email = new UntypedFormControl('', [
     Validators.required,
-    Validators.email
-  ])
+    Validators.email,
+
+  ], [this.emailTaken.validate])
   age = new UntypedFormControl('', [
     Validators.required,
     Validators.min(18),
@@ -53,17 +72,31 @@ export class RegisterComponent  {
     password: this.password,
     confirm_password: this.confirm_password,
     phoneNumber: this.phoneNumber
-  })
+  }, [RegisterValidators.match('password', 'confirm_password')])
 
-  constructor(){
-    // FormControl instead AbstractControl
-    this.name
-  }
-
-  register(){
+  async register(){
     this.showAlert = true
     this.alertMsg = 'Please wait! Your account is being created'
-    this.alertColor = 'blue'
+    this.alertColor = this.blue
+    this.inSubmission = true
+
+
+    try {
+
+      this.authService.createUser(this.registerForm.value)
+
+    } catch(e) {
+      console.log(e)
+
+      this.alertMsg = 'An unexpected error occurred. Please try again later.'
+      this.alertColor = this.red
+      this.inSubmission = false
+
+      return
+    }
+
+    this.alertMsg = 'Success! Your account has been created.'
+    this.alertColor = this.green
   }
 
 }

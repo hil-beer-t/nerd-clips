@@ -27,4 +27,10 @@
     - Must contain at least 1 lowercase letter<br />
     - Must contain at least 1 number
   </p>
+  <p *ngIf="control.errors?.noMatch" class="text-red-400">
+    Passwords do not match.
+  </p>
+  <p *ngIf="control.errors?.emailTaken" class="text-red-400">
+    This email address is already taken. Please try another
+  </p>
 </ng-container>
