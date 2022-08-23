@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import IUser from '../models/user.model';
-import { delay, map, Observable } from 'rxjs';
+import { delay, map, filter, Observable, switchMap, of } from 'rxjs';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 // --- firebase ---
 import { AngularFireAuth } from '@angular/fire/compat/auth'
@@ -15,10 +16,13 @@ export class AuthService {
   // $ -> observables
   public isAuthenticated$: Observable<boolean>
   public isAuthenticatedWithDelay$: Observable<boolean>
+  private redirect = false
 
   constructor(
     private auth: AngularFireAuth,
-    private db: AngularFirestore
+    private db: AngularFirestore,
+    private router: Router,
+    private route: ActivatedRoute
     ){
       this.usersCollection = db.collection('users')
       this.isAuthenticated$ = auth.user.pipe(
@@ -28,6 +32,18 @@ export class AuthService {
       this.isAuthenticatedWithDelay$ = this.isAuthenticated$.pipe(
         delay(1000)
       )
+
+      // listen specifically to NavigationEnd event by Service
+      // because the Navigation Input of component is not accessible to services
+      // ?? nullish operator
+      this.router.events.pipe(
+        filter(
+          e => e instanceof NavigationEnd),
+        map(e => this.route.firstChild),
+        switchMap(route => route?.data ?? of({}))
+      ).subscribe(data => {
+        this.redirect = data.authOnly ?? false
+      })
   }
 
   public async createUser(userData: IUser) {
@@ -55,7 +71,19 @@ export class AuthService {
     await userCred.user.updateProfile({
        displayName: userData.name
     })
+  }
 
+  public async logout($event?: Event) {
+
+    if ($event){
+      $event.preventDefault()
+    }
+
+    await this.auth.signOut()
+
+    if(this.redirect) {
+      await this.router.navigateByUrl('/')
+    }
   }
 
 
