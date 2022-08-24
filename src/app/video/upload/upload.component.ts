@@ -11,6 +11,7 @@ import { last, switchMap } from 'rxjs';
 import { v4 as uuid } from 'uuid';
 import firebase from 'firebase/compat/app';
 import { ModalService } from 'src/app/services/modal.service';
+import { setInterval } from 'timers';
 
 @Component({
   selector: 'app-upload',
@@ -58,18 +59,14 @@ export class UploadComponent implements OnDestroy, OnInit {
     private auth: AngularFireAuth,
     private clipsService: ClipService,
     private router: Router,
-    public modal: ModalService
   ) {
     auth.user.subscribe((user) => (this.user = user));
   }
   ngOnInit(): void {
-
-
   }
 
   ngOnDestroy(): void {
     this.task?.cancel();
-
   }
 
   storeFile($event: Event) {

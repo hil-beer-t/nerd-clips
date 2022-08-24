@@ -8,14 +8,14 @@ import { ModalService } from 'src/app/services/modal.service';
 })
 export class DestroyModalComponent implements OnInit {
 
-  constructor(public modal: ModalService) { }
+  constructor(private modal: ModalService) { }
 
   ngOnDestroy(): void {
-    this.modal.unregister('upload')
+    this.modal.unregister('destroy')
   }
 
   ngOnInit(): void {
-    this.modal.register('upload')
+    this.modal.register('destroy')
   }
 
 }

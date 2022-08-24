@@ -8,7 +8,6 @@ import { InputComponent } from './input/input.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { AlertComponent } from './alert/alert.component';
 import { EventBlockerDirective } from './directives/event-blocker.directive';
-import { ModalUploadComponent } from './modal-upload/modal-upload.component';
 
 
 
@@ -19,8 +18,7 @@ import { ModalUploadComponent } from './modal-upload/modal-upload.component';
     TabComponent,
     InputComponent,
     AlertComponent,
-    EventBlockerDirective,
-    ModalUploadComponent
+    EventBlockerDirective
   ],
   imports: [
     CommonModule,
@@ -34,8 +32,6 @@ import { ModalUploadComponent } from './modal-upload/modal-upload.component';
     TabComponent,
     InputComponent,
     AlertComponent,
-    EventBlockerDirective,
-    ModalUploadComponent
-  ]
+    EventBlockerDirective  ]
 })
 export class SharedModule { }

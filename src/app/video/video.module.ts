@@ -7,13 +7,15 @@ import { UploadComponent } from './upload/upload.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DestroyModalComponent } from './destroy-modal/destroy-modal.component';
+import { EditComponent } from './edit/edit.component';
 
 
 @NgModule({
   declarations: [
     ManageComponent,
     UploadComponent,
-    DestroyModalComponent
+    DestroyModalComponent,
+    EditComponent
   ],
   imports: [
     CommonModule,
