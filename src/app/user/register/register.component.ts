@@ -33,7 +33,6 @@ export class RegisterComponent  {
   // --- alert properties ---
 
 
-
   // force FormControl type
   name = new UntypedFormControl('', [
     Validators.required,
