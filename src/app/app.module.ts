@@ -18,6 +18,7 @@ import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireAuthModule } from '@angular/fire/compat/auth'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { ClipsListComponent } from './clips-list/clips-list.component';
 // --- firebase ---
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     HomeComponent,
     AboutComponent,
     ClipComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ClipsListComponent
   ],
   imports: [
     BrowserModule,
