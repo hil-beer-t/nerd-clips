@@ -6,12 +6,12 @@
     <div class="font-bold mb-6">Upload Video</div>
 
     <ng-container>
-      <span
+      <i
         *ngIf="!ffmpeg.isReady; else uploadEditorCtr"
-        class="material-icon text-center text-6xl p-8 animate-spin"
+        class="material-icons text-center text-6xl p-8 animate-spin"
       >
-        &#10227;
-      </span>
+        refresh
+      </i>
     </ng-container>
 
     <ng-template #uploadEditorCtr>
@@ -35,9 +35,9 @@
 
           <span
             *ngIf="ffmpeg.isRunning"
-            class="text-center text-6xl p-8 mt-4 animate-ping"
+            class="material-icons text-center text-6xl p-8 mt-4 animate-ping"
           >
-            loading...
+            file_upload
           </span>
         </div>
 
