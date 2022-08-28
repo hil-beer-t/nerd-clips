@@ -2,6 +2,7 @@
 import { AuthService } from './../services/auth.service';
 import { ModalService } from './../services/modal.service';
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from '../theme/theme.service';
 
 @Component({
   selector: 'app-nav',
@@ -13,7 +14,8 @@ export class NavComponent implements OnInit {
 
   constructor(
     public modal: ModalService,
-    public auth: AuthService
+    public auth: AuthService,
+    private themeService: ThemeService
     ) {
 
   }
@@ -26,4 +28,15 @@ export class NavComponent implements OnInit {
     this.modal.toggleModal('auth')
   }
 
+  toggle($event: Event) {
+    $event.preventDefault()
+    const active = this.themeService.getActiveTheme() ;
+    if (active.name === 'light') {
+      this.themeService.setTheme('dark');
+    } else {
+      this.themeService.setTheme('light');
+    }
+  }
+
 }
+

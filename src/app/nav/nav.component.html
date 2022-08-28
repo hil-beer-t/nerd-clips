@@ -1,5 +1,5 @@
 <!-- Header -->
-<header id="header" class="bg-secondary">
+<header app-theme id="header" class="bg-secondary">
   <nav
     class="container mx-auto flex flex-wrap justify-start items-center py-8 px-4"
   >
@@ -76,7 +76,8 @@
       </ul>
 
       <span
-        class="material-icons text-center text-6xl p-8 ml-auto lg:ml-1 md:ml-1"
+        (click)="toggle($event)"
+        class="cursor-pointer material-icons text-center text-6xl p-8 ml-auto lg:ml-1 md:ml-1"
       >
         light_mode
       </span>
