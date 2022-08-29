@@ -15,14 +15,23 @@ import { ClipsListComponent } from './clips-list/clips-list.component';
 import { FbTimestampPipe } from './pipes/fb-timestamp.pipe';
 import { lightTheme } from './theme/light-theme';
 import { darkTheme } from './theme/dark-theme';
-// --- firebase ---
+import { ThemeModule } from './theme/theme.module';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 // --- firebase ---
 import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireAuthModule } from '@angular/fire/compat/auth'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { ThemeModule } from './theme/theme.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+// --- firebase ---
+
+// get en/pt files
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
 
 @NgModule({
   declarations: [
@@ -43,9 +52,18 @@ import { ThemeModule } from './theme/theme.module';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
+    HttpClientModule,
     ThemeModule.forRoot({
       themes: [lightTheme, darkTheme],
       active: 'light'
+    }),
+    TranslateModule.forRoot({
+      defaultLanguage: 'pt',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
     }),
     AppRoutingModule, // <--- leave this down here
   ],

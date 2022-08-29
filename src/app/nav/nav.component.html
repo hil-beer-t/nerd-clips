@@ -1,86 +1,107 @@
-<!-- Header -->
-<header app-theme id="header" class="bg-secondary">
-  <nav
-    class="container mx-auto flex flex-wrap justify-start items-center py-8 px-4"
+<header class="text-gray-600 body-font">
+  <div
+    class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
   >
-    <!-- App Name -->
-    <a class="text-3xl text-indigo-400 font-bold uppercase mr-4" routerLink="/"
-      >Nerd Clips</a
+    <a class="flex items-center mb-4 md:mb-0" routerLink="/">
+      <span class="text-3xl text-[#00B5B5] font-bold uppercase mr-4"
+        >Nerd Clips</span
+      >
+    </a>
+    <nav
+      class="md:ml-auto flex flex-wrap items-center text-base justify-center"
     >
+      <a
+        *ngIf="!(auth.isAuthenticated$ | async); else authLinks"
+        class="mr-5"
+        href="#"
+        (click)="openModal($event)"
+      >
+        {{ "NAV.ITEMS.LOGIN" | translate }}
+      </a>
+      <ng-template #authLinks>
+        <a
+          class="mr-5"
+          routerLink="/manage"
+          routerLinkActive="text-[#00B5B5]"
+          [routerLinkActiveOptions]="{ exact: true }"
+          [queryParams]="{ sort: '1' }"
+        >
+          {{ "NAV.ITEMS.MANAGE" | translate }}
+        </a>
+        <a
+          class="mr-5"
+          routerLinkActive="text-[#00B5B5]"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLink="/upload"
+        >
+          {{ "NAV.ITEMS.UPLOAD" | translate }}
+        </a>
+        <a class="mr-5" href="#" (click)="auth.logout($event)">{{
+          "NAV.ITEMS.LOGOUT" | translate
+        }}</a>
+      </ng-template>
 
-    <div class="flex flex-grow flex-wrap items-center">
-      <!-- Primary Navigation -->
-      <ul class="flex flex-row mt-1">
-        <!-- Navigation Links -->
-        <li *ngIf="!(auth.isAuthenticated$ | async); else authLinks">
-          <a class="px-2" href="#" (click)="openModal($event)"
-            >Login / Register</a
-          >
-        </li>
-        <ng-template #authLinks>
-          <li>
-            <a
-              class="px-2"
-              routerLink="/manage"
-              routerLinkActive="text-indigo-400"
-              [routerLinkActiveOptions]="{ exact: true }"
-              [queryParams]="{ sort: '1' }"
-              >Manage</a
-            >
-          </li>
-          <li>
-            <a
-              class="px-2"
-              routerLinkActive="text-indigo-400"
-              [routerLinkActiveOptions]="{ exact: true }"
-              routerLink="/upload"
-              >Upload</a
-            >
-          </li>
-          <li>
-            <a class="px-2" href="#" (click)="auth.logout($event)">Logout</a>
-          </li>
-        </ng-template>
-        <li routerLinkActive="text-indigo-400">
-          <a class="px-2" routerLinkActive="text-indigo-400" routerLink="/about"
-            >About</a
-          >
-        </li>
-      </ul>
-      <!-- Language Switcher -->
-      <ul class="flex flex-row lg:ml-auto lg:my-0 md:ml-auto my-1 ml-2">
-        <li class="mr-2">
-          <a href="#">
-            <img
-              src="../../assets/img/en.png"
-              alt="en"
-              width="22"
-              height="14"
-              class="inline-block"
-            />
-            <span class="ml-1">en</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img
-              src="../../assets/img/brazil.png"
-              alt="pt"
-              width="22"
-              height="14"
-              class="inline-block"
-            />
-            <span class="ml-1">pt-br</span>
-          </a>
-        </li>
-      </ul>
+      <a class="mr-5" routerLinkActive="text-[#00B5B5]" routerLink="/about">
+        {{ "NAV.ITEMS.ABOUT" | translate }}
+      </a>
+    </nav>
 
-      <span
-        (click)="toggle($event)"
-        class="cursor-pointer material-icons text-center text-6xl p-8 ml-auto lg:ml-1 md:ml-1"
+    <button
+      class="inline-flex items-center py-1 px-1 focus:outline-none mt-4 md:mt-0"
+    >
+      <a
+        href="#"
+        (click)="toggleLang($event, 'en')"
+        [ngClass]="{
+          'text-[#00B5B5]': enIsActive
+        }"
+        class="mr-3 cursor-pointer"
+      >
+        <img
+          src="../../assets/img/en.png"
+          alt="en"
+          width="22"
+          height="14"
+          class="inline-block"
+        />
+        <span class="ml-1">en</span>
+      </a>
+      <a
+        href="#"
+        [ngClass]="{
+          'text-[#00B5B5]': ptIsActive
+        }"
+        (click)="toggleLang($event, 'pt')"
+        class="cursor-pointer"
+      >
+        <img
+          src="../../assets/img/brazil.png"
+          alt="pt"
+          width="22"
+          height="14"
+          class="inline-block"
+        />
+        <span class="ml-1">pt-br</span>
+      </a>
+    </button>
+
+    <button class="inline-flex items-center">
+      <a
+        *ngIf="themeService.getActiveTheme().name === 'light'; else themeSpan"
+        (click)="toggleTheme($event)"
+        class="cursor-pointer material-icons text-center text-6xl my-3 mx-3"
       >
         light_mode
-      </span>
-    </div>
-  </nav>
+      </a>
+
+      <ng-template #themeSpan>
+        <a
+          (click)="toggleTheme($event)"
+          class="cursor-pointer material-icons text-center text-6xl my-3 mx-3"
+        >
+          dark_mode
+        </a>
+      </ng-template>
+    </button>
+  </div>
 </header>

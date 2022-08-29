@@ -3,6 +3,7 @@ import { AuthService } from './../services/auth.service';
 import { ModalService } from './../services/modal.service';
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from '../theme/theme.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-nav',
@@ -11,11 +12,14 @@ import { ThemeService } from '../theme/theme.service';
 })
 export class NavComponent implements OnInit {
 
+  enIsActive: boolean = false; // language is active
+  ptIsActive: boolean = true; // language is active
 
   constructor(
     public modal: ModalService,
     public auth: AuthService,
-    private themeService: ThemeService
+    public themeService: ThemeService,
+    public translate: TranslateService
     ) {
 
   }
@@ -28,7 +32,7 @@ export class NavComponent implements OnInit {
     this.modal.toggleModal('auth')
   }
 
-  toggle($event: Event) {
+  toggleTheme($event: Event) {
     $event.preventDefault()
     const active = this.themeService.getActiveTheme() ;
     if (active.name === 'light') {
@@ -36,6 +40,21 @@ export class NavComponent implements OnInit {
     } else {
       this.themeService.setTheme('light');
     }
+  }
+
+  toggleLang($event: Event, lang: string) {
+    $event.preventDefault()
+
+    if (lang === 'en') {
+      this.ptIsActive = false
+      this.translate.use('en')
+      this.enIsActive = true
+    } else {
+      this.enIsActive = false
+      this.translate.use('pt')
+      this.ptIsActive = true
+    }
+
   }
 
 }

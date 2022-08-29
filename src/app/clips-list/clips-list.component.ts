@@ -45,4 +45,14 @@ export class ClipsListComponent implements OnInit, OnDestroy {
     }
   }
 
+  click($event: Event) {
+
+    window.scroll({
+      top: 200,
+      left: 0,
+      behavior: 'smooth'
+    })
+
+  }
+
 }

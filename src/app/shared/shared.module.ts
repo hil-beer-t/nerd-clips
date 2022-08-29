@@ -8,6 +8,7 @@ import { InputComponent } from './input/input.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { AlertComponent } from './alert/alert.component';
 import { EventBlockerDirective } from './directives/event-blocker.directive';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -32,6 +33,7 @@ import { EventBlockerDirective } from './directives/event-blocker.directive';
     TabComponent,
     InputComponent,
     AlertComponent,
+    TranslateModule,
     EventBlockerDirective  ]
 })
 export class SharedModule { }

@@ -1,0 +1,11 @@
+{
+  "NAV": {
+    "ITEMS": {
+      "MANAGE" : "Manage",
+      "UPLOAD" : "Upload",
+      "LOGOUT" : "Logout",
+      "ABOUT" : "About",
+      "LOGIN" : "Login / Register"
+    }
+  }
+}
