@@ -6,6 +6,8 @@
 
 - [About](#about)
 - [Getting Started](#getting_started)
+- [Features](#features)
+- [Built with](#built_with)
 - [Vercel deploy](#vercel)
 - [Acknowledgment](#acknowledgment)
 
@@ -16,6 +18,15 @@ Angular project of a Video Platform. You can watch video of other users, and if 
 ## Getting Started <a name = "getting_started"></a>
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+## Features <a name = "features"></a>
+
+- Watch videos (ffmpeg)
+- Upload/Edit/Delete `your` own videos (ffmpeg/firebase)
+- Infinite scrool
+- Login/Register (firebase)
+- Dark/Light mode
+- Switch language button
 
 ### Prerequisites
 
@@ -146,8 +157,12 @@ Open the browser at this url:
 http://localhost:4200/
 ```
 
-<br> 
-<br>
+## Built with <a name = "built_with"></a>
+
+- [Angular](https://angular.io/guide/setup-local)
+- [Firebase](https://firebase.google.com/)
+- [Ffmpeg](https://ffmpeg.org/)
+- [ngx-translate](https://github.com/ngx-translate/core)
 
 ## Vercel deploy <a name = "vercel"></a>
 
