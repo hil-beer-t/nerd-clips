@@ -25,6 +25,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './footer/footer.component';
 // --- firebase ---
 
 // get en/pt files
@@ -42,7 +43,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ClipComponent,
     NotFoundComponent,
     ClipsListComponent,
-    FbTimestampPipe
+    FbTimestampPipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
