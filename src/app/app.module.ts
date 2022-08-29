@@ -57,7 +57,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     HttpClientModule,
     ThemeModule.forRoot({
       themes: [lightTheme, darkTheme],
-      active: 'light'
+      active: 'dark'
     }),
     TranslateModule.forRoot({
       defaultLanguage: 'pt',
