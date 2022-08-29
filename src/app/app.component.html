@@ -1,7 +1,9 @@
-<app-nav></app-nav>
+<div app-theme class="theme-app">
+  <app-nav></app-nav>
 
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 
-<app-auth-modal
-  *ngIf="!(auth.isAuthenticatedWithDelay$ | async)"
-></app-auth-modal>
+  <app-auth-modal
+    *ngIf="!(auth.isAuthenticatedWithDelay$ | async)"
+  ></app-auth-modal>
+</div>
