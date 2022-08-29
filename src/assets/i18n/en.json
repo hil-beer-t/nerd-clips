@@ -7,5 +7,30 @@
       "ABOUT" : "About",
       "LOGIN" : "Login / Register"
     }
+  },
+  "HOME": {
+    "MSG": {
+      "TITLE": "CLIP IT AND SHIP IT!",
+      "SUBTITLE": "",
+      "DESCRIPTION": "The #1 app to watch, clip, and share your awesome nerd moments with your friends and the world! With our world-class tools, we make it incredibly easy to share your videos. Get started today!"
+    }
+  },
+  "ABOUT": {
+    "TOP": {
+      "TITLE": "About",
+      "DESCRIPTION": "Share the best nerd moments, like Sr. K in NerdCast, NerdPlayer with Azaghal, best Gaveta editions and of course, MATANDO ROBÔS GIGANTES!"
+    },
+    "NERDCAST": {
+      "SUBTITLE": "Gods of nerdology",
+      "DESCRIPTION": "Nerdcast completed 10 years in 2016 with 1 million downloads per episode and ranked first in podcast audience in Brazil. The subjects are history, science, cinema, comics, literature, technology, games, RPG… Everything a nerd would like! The conversation is informal, fun, and as crazy as it is serious."
+    },
+    "GAVETA": {
+      "SUBTITLE": "God of Editing and VFX",
+      "DESCRIPTION": "He worked at Globosat (GNT channel) as a web/video editor and then at the renowned Seagulls Fly as a web/video designer. Won twice, some international design awards like the respected FWA, participated in great projects - among them animations for the American operator Sprint for exclusive exhibition in Times Square / NY, campaign for Adobe's CS5 package and the intro video of the game Diablo III. Today with his own company, Gaveta Filmes, he plays the role of Youtuber of his own channel"
+    },
+    "MRG": {
+      "SUBTITLE": "Legendary triplett",
+      "DESCRIPTION": "The troubled minds of Affonso Solano, Didi Braguinha and Beto Estrada come together in podcasts and weekly videos to discuss the nerd universe in Cinema, Games, Comics, Literature and pop culture!"
+    }
   }
 }

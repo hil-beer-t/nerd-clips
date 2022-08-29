@@ -7,5 +7,31 @@
       "ABOUT" : "Sobre",
       "LOGIN" : "Logar / Registrar"
     }
+  },
+  "HOME": {
+    "MSG": {
+      "TITLE": "CLIPA E",
+      "SUBTITLE": "COMPARTILHA!",
+      "DESCRIPTION": "O aplicativo nº 1 para assistir, clipar e compartilhar seus incríveis momentos nerds com seus amigos e o mundo! Com o nosso app, tornamos incrivelmente fácil compartilhar seus vídeos. Comece hoje!"
+    }
+  },
+  "ABOUT": {
+    "TOP": {
+      "TITLE": "Sobre",
+      "DESCRIPTION": "Compartilhe os melhores momentos nerds, como Sr. K no NerdCast, NerdPlayer com Azaghal, melhores edições da Gaveta e claro, MATANDO ROBÔS GIGANTES!"
+    },
+    "NERDCAST": {
+      "SUBTITLE": "Deuses da nerdlogia",
+      "DESCRIPTION": "O Nerdcast completou 10 anos em 2016 com 1 milhão de downloads por episódio e como primeiro lugar de audiência em podcasts no Brasil. Os assuntos são história, ciência, cinema, quadrinhos, literatura, tecnologia, games, RPG… Tudo que um nerd gosta! A conversa é informal, divertida, escrachada e tão doida quanto séria. Quer dizer, tão séria quanto doida!"
+    },
+    "GAVETA": {
+      "SUBTITLE": "Deus da edição e VFX",
+      "DESCRIPTION": "Trabalhou na Globosat (canal GNT) como web/vídeo e depois na renomada Seagulls Fly como designer web/vídeo. Ganhou alguns prêmios internacionais de design como o respeitado FWA duas vezes, participou de grandes projetos - entre eles animações para a operadora americana Sprint para exibição exclusiva na Times Square/NY, campanha para o pacote CS5 da Adobe e o vídeo de introdução do jogo Diablo III. Hoje com a sua própria empresa, a Gaveta Filmes, desempenha o papel de mente criativa como Youtuber no seu próprio canal."
+    },
+    "MRG": {
+      "SUBTITLE": "Trio lendário",
+      "DESCRIPTION": "As mentes perturbadas de Affonso Solano, Didi Braguinha e Beto Estrada se reúnem em podcasts e vídeos semanais para debater o universo nerd no Cinema, Games, Quadrinhos, Literatura e cultura pop!"
+    }
   }
+
 }
