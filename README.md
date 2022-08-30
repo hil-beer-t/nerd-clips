@@ -1,4 +1,4 @@
-# [Nerd Clips]()
+# [Nerd Clips 🔗](https://nerd-clips.vercel.app/)
 
 ![image](https://user-images.githubusercontent.com/52302576/187304122-c15d1bd5-28f4-4a13-a101-c9fa29b1d052.png)
 
@@ -164,9 +164,9 @@ http://localhost:4200/
 - [Ffmpeg](https://ffmpeg.org/)
 - [ngx-translate](https://github.com/ngx-translate/core)
 
-## Vercel deploy <a name = "vercel"></a>
+## Vercel deploy 🔗 <a name = "vercel"></a>
 
-[https://rust-web-assembly-nine.vercel.app/](https://rust-web-assembly-nine.vercel.app/)
+[https://nerd-clips.vercel.app/ ](https://nerd-clips.vercel.app/)
 
 <br>
 
